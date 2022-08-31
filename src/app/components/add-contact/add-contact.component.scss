@@ -1,0 +1,98 @@
+.contact_form_wrapper {
+
+    .avtar {
+        position  : relative;
+        max-width : 100px;
+        min-height: 100px;
+        margin    : 1.3rem auto;
+
+        img {
+            width           : 100%;
+            aspect-ratio    : 1 / 1;
+            object-fit      : cover;
+            border-radius   : 50%;
+            opacity         : .6;
+            // border       : 2px solid red;
+
+        }
+
+        .overlay {
+            position              : absolute;
+            width                 : inherit;
+            aspect-ratio          : inherit;
+            // inset           : 1px -3px 6px 1px;
+            inset                 : 0;
+            // background-color   : rgb(221, 221, 221);
+            opacity               : .8;
+            border-radius         : 50%;
+            display               : flex;
+            justify-content       : center;
+            align-items           : center;
+
+            mat-icon {
+                cursor        : pointer;
+                // color      : rgb(93, 177, 255);
+                color         : #000;
+                font-weight   : 600;
+
+                #file {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    form {
+        display          : flex;
+        flex-direction   : column;
+        height           : 100%;
+        // overflow      : scroll;
+
+        .field_group {
+            width                : 100%;
+            display              : flex;
+            justify-content      : space-between;
+            // align-items    : center;
+            // border            : 1px solid red;
+            position             : relative;
+
+            .field_icon {
+                // position: absolute;
+                // // top     : 15px;
+                margin: 13px 15px 15px 0;
+            }
+
+            .expend_icon {
+                margin: 13px 0 15px 15px;
+            }
+
+
+        }
+
+        button+button {
+            margin-top: .5rem;
+        }
+    }
+}
+
+.mat-form-field {
+    // border: 1px solid blue;
+    width: 100%;
+}
+
+.example-container .mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+.example-right-align {
+    text-align: left;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+
+input.example-right-align {
+    -moz-appearance: textfield;
+}

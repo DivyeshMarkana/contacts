@@ -1,0 +1,79 @@
+<div class="contact_view_wrapper">
+
+    <div class="options_header" mat-dialog-title>
+        <!-- <button mat-button> -->
+        <mat-icon color="primary" mat-dialog-close="true" (click)="closeDialog()" color="warn"
+            [mat-dialog-close]="contactData">close
+        </mat-icon>
+        <!-- </button> -->
+        <!-- <mat-menu #moreOptions="matMenu">
+            <button mat-button color="primary" (click)="openContactUpdateDialog(contactData)">
+                <mat-icon>mode_edit</mat-icon>
+            </button>
+            <button mat-button color="warn" (click)="deleteContact(contactData)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-menu> -->
+    </div>
+
+    <mat-dialog-content>
+
+        <div class="avtar">
+            <img src="{{photoUrl}}" alt="">
+            <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""> -->
+
+            <!-- <div class="overlay">
+            <label for="file">
+                <mat-icon>add</mat-icon>
+                <input type="file" id="file" style="display: none" name="image"
+                    accept="image/gif,image/jpeg,image/jpg,image/png" multiple="" data-original-title="upload photos"
+                    (change)="upload($event)">
+            </label>
+        </div> -->
+        </div>
+
+        <!-- <div class="options_header">
+        <span [mat-menu-trigger-for]="moreOptions">
+            <mat-icon color="primary">more_vert</mat-icon>
+        </span>
+        <mat-menu #moreOptions="matMenu">
+            <button mat-button color="primary" (click)="openContactUpdateDialog(contactData)">
+                <mat-icon>mode_edit</mat-icon>
+            </button>
+            <button mat-button color="warn" (click)="deleteContact(contactData)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-menu>
+    </div> -->
+
+        <div class="contact_name">
+            <ng-container *ngIf="contactData.firstName !== '' || contactData.lastName !== '' ">
+                <h3>{{contactData.firstName}} {{contactData.lastName}}</h3>
+            </ng-container>
+
+            <ng-container *ngIf="contactData.firstName === '' && contactData.lastName === '' ">
+                <h3>{{contactData.contactNumber}}</h3>
+            </ng-container>
+        </div>
+
+        <div class="contact_info">
+            <h4>Contact info</h4>
+            <p>{{contactData.contactType}}</p>
+
+            <p>{{contactData.contactNumber}}</p>
+        </div>
+
+    </mat-dialog-content>
+
+    <!-- <button mat-raised-button mat-dialog-close="true" (click)="closeDialog()" [mat-dialog-close]="contactData"
+        color="warn">Close</button> -->
+
+    <mat-dialog-actions>
+        <button mat-stroked-button color="primary" (click)="openContactUpdateDialog(contactData)">
+            <mat-icon>mode_edit</mat-icon>
+        </button>
+        <button mat-stroked-button color="warn" (click)="deleteContact(contactData)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,50 @@
+<div class="contact__list mat-elevation-z10">
+
+    <div class="contact__header">
+        <h2>Contacts</h2>
+        <mat-icon (click)="openAddContactDialog()">add</mat-icon>
+    </div>
+
+    <ul>
+        <li *ngFor="let contact of contactList" (dblclick)="openContactView(contact)">
+            <div>
+                <span>
+                    <mat-icon color="primary">account_circle</mat-icon>
+                </span>
+                <span
+                    *ngIf="contact.firstName !== null  && contact.firstName !== ''|| contact.lastName !== null && contact.lastName !== '' ">
+                    {{contact.firstName}} {{contact.lastName}}
+                </span>
+
+                <!-- <span
+                    *ngIf="contact.firstName === null && contact.middleName === null && contact.lastName === null&& contact.firstName === null&& contact.firstName === null">
+                    {{contact.contactNumber}}
+                </span> -->
+
+                <span
+                    *ngIf="contact.firstName === '' && contact.middleName === '' && contact.lastName === '' && contact.firstName === '' && contact.firstName === '' ">
+                    {{contact.contactNumber}}
+                </span>
+            </div>
+
+            <span [mat-menu-trigger-for]="moreOptions">
+                <mat-icon color="primary">more_vert</mat-icon>
+            </span>
+            <mat-menu #moreOptions="matMenu">
+                <button mat-button color="primary" (click)="openContactUpdateDialog(contact)">
+                    <mat-icon>mode_edit</mat-icon>
+                </button>
+                <button mat-button color="warn" (click)="deleteContact(contact)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-menu>
+        </li>
+    </ul>
+
+
+
+</div>
+
+<!-- <button (click)="openAddContactDialog()" class="add_btn" mat-mini-fab>
+    <mat-icon>add</mat-icon>
+</button> -->

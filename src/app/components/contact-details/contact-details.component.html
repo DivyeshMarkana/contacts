@@ -1,0 +1,79 @@
+<mat-dialog-content>
+    <div class="contact_form_wrapper">
+
+        <div class="avtar">
+            <img src="{{photoUrl ? photoUrl : 'https://bootdey.com/img/Content/avatar/avatar7.png' }}" alt="">
+
+            <div class="overlay">
+                <label for="file">
+                    <mat-icon>add</mat-icon>
+                    <input type="file" id="file" style="display: none" name="image"
+                        accept="image/gif,image/jpeg,image/jpg,image/png" multiple=""
+                        data-original-title="upload photos" (change)="upload($event)">
+                </label>
+            </div>
+        </div>
+        <form [formGroup]="contact_form">
+
+            <div class="name_field_group field_group">
+                <div class="field_icon">
+                    <mat-icon>person</mat-icon>
+                </div>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Prifix</mat-label>
+                        <input matInput placeholder="Prifix" formControlName="prefix">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>First name</mat-label>
+                        <input matInput placeholder="First name" formControlName="firstName">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Middle name</mat-label>
+                        <input matInput placeholder="Middle name" formControlName="middleName">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Last name</mat-label>
+                        <input matInput placeholder="Last name" formControlName="lastName">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Suffix</mat-label>
+                        <input matInput placeholder="Suffix" formControlName="suffix">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="contact_field_group field_group">
+                <div class="field_icon">
+                    <mat-icon>call</mat-icon>
+                </div>
+                <div>
+
+
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Contact</mat-label>
+                        <input matInput type="number" class="example-right-align" placeholder="Contact"
+                            formControlName="contactNumber">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Contact type</mat-label>
+                        <mat-select formControlName="contactType">
+                            <mat-option value="Mobile">Mobile</mat-option>
+                            <mat-option value="Work">Work</mat-option>
+                            <mat-option value="Home">Home</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                </div>
+            </div>
+
+            <button mat-dialog-close="true" mat-stroked-button color="primary" [mat-dialog-close]="contact_form.value"
+                (click)="onSubmit()" type="submit">Update
+                contact</button>
+            <button mat-raised-button color="warn" (click)="cancle()" type="button">Cancel</button>
+
+        </form>
+    </div>
+
+</mat-dialog-content>
